@@ -5,6 +5,9 @@ export interface Card {
   columnId: string;
   order: number;
   createdAt: string;
+  priority?: 'low' | 'medium' | 'high';
+  tags?: string[];
+  dueDate?: string;
 }
 
 export interface Column {
