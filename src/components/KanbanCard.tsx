@@ -59,7 +59,7 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
       <div
         ref={setNodeRef}
         style={style}
-        className="group bg-card border border-border rounded-lg p-4 mb-3 shadow-sm hover:shadow-md transition-shadow"
+        className="group bg-card border border-border rounded-lg p-4 mb-3 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-200 hover:border-primary/50"
       >
         <div className="flex items-start gap-2">
           <button
