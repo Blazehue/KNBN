@@ -4,7 +4,8 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Card } from "@/types/kanban";
 import { Button } from "@/components/ui/button";
-import { GripVertical, Pencil, Trash2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { GripVertical, Pencil, Trash2, Clock, AlertCircle } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -87,6 +88,30 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
                 {card.description}
               </p>
             )}
+            
+            {/* Priority and Tags */}
+            <div className="flex flex-wrap gap-2 mt-2">
+              {card.priority && (
+                <Badge 
+                  variant={card.priority === 'high' ? 'destructive' : card.priority === 'medium' ? 'default' : 'secondary'}
+                  className="text-xs"
+                >
+                  <AlertCircle className="w-3 h-3 mr-1" />
+                  {card.priority}
+                </Badge>
+              )}
+              {card.tags?.map((tag) => (
+                <Badge key={tag} variant="outline" className="text-xs">
+                  {tag}
+                </Badge>
+              ))}
+              {card.dueDate && (
+                <Badge variant="secondary" className="text-xs">
+                  <Clock className="w-3 h-3 mr-1" />
+                  {new Date(card.dueDate).toLocaleDateString()}
+                </Badge>
+              )}
+            </div>
           </div>
           <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
             <Button
