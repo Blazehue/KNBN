@@ -46,10 +46,17 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
   };
 
   const handleSave = () => {
-    if (title.trim()) {
-      onEdit(card.id, title.trim(), description.trim());
-      setIsEditOpen(false);
+    const trimmedTitle = title.trim();
+    if (!trimmedTitle) {
+      alert('Card title cannot be empty');
+      return;
     }
+    if (trimmedTitle.length > 100) {
+      alert('Card title is too long (max 100 characters)');
+      return;
+    }
+    onEdit(card.id, trimmedTitle, description.trim());
+    setIsEditOpen(false);
   };
 
   const isDone = card.columnId === "done";
