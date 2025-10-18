@@ -277,4 +277,4 @@ Give a ⭐️ if this project helped you!
 
 ---
 
-**Built with ❤️ using Next.js and TypeScript for Day 2 of GitHub Streak Challenge**
+**Built with ❤️ using Next.js and TypeScript**
