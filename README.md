@@ -1,4 +1,4 @@
-# 📋 Minimalist Kanban Board
+# 📋 Minimalist Kanban Board.
 
 <div align="center">
 
